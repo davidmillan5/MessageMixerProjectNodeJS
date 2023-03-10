@@ -2,12 +2,20 @@
 
 // Import the encryptors functions here.
 
+const caesarCipher = encryptors.caesarCipher;
+
+const symbolCipher = encryptors.symbolCipher;
+
+const reverseCipher = encryptors.reverseCipher;
+
 const encodeMessage = (str) => {
   // Use the encryptor functions here.
+  return reverseCipher(symbolCipher(caesarCipher(str, 6)));
 };
 
 const decodeMessage = (str) => {
   // Use the encryptor functions here.
+  return caesarCipher(symbolCipher(reverseCipher(str)), -6);
 };
 
 // User input / output.
